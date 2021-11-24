@@ -11,16 +11,16 @@ export class Graph extends React.Component<IGraphProps> {
   constructor(props: IGraphProps) {
     super(props);
     const valuesList = this.calcValuesParams(props.values).valuesList;
-    this.valueElements = valuesList.map((el) => <rect x={ el.x} y={ el.y } width={ el.width } height={ el.height } fill="red"/>);
+    this.valueElements = valuesList.map((el) => <rect rx="5" ry="5" x={ el.x} y={ el.y } width={ el.width } height={ el.height } fill="red"/>);
   };
 
   calcValuesParams(valuesList: Array<number>){
     return valuesList.reduce(
       (acc: {valuesList: Array<{ x: number, y: number, width: number, height: number }>, counter: number}, val) => {
-        const height = val * 20;
+        const height = val * 20 + 5;
         const width = 20;
-        const x = acc.counter * 30;
-        const y = 0;
+        const x = acc.counter ? (acc.counter * 30 + 10) : 10;
+        const y = -5;
         const counter = acc.counter + 1;
         return { valuesList: [...acc.valuesList, { x, y, width, height}], counter };
       }, { valuesList: [], counter: 0 });
