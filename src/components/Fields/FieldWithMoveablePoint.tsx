@@ -6,7 +6,7 @@ interface IFieldWithMoveablePointState {
   circleY: number,
 }
 
-export class FieldWithMoveablePoint extends React.Component<{}, IFieldWithMoveablePointState> {
+export class FieldWithMoveablePoint extends React.Component<any, IFieldWithMoveablePointState> {
   constructor(props: any) {
     super(props);
     this.state = {

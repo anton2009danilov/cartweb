@@ -1,5 +1,5 @@
 import { FieldWithMoveablePoint } from './components/Fields/FieldWithMoveablePoint';
-import FieldWithPointsGeneration from './components/Fields/FieldWithPointsGeneration';
+import { FieldWithPointsGeneration } from './components/Fields/FieldWithPointsGeneration';
 import { Graph } from './components/Graph/Graph';
 import './App.css';
 
