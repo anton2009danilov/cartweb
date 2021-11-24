@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./Fields.module.css";
 
 const FieldWithPointsGeneration: React.FC  = () => {
-  const [pointsList, setPointsList] = useState({ points: [{ x: 1, y: 2 }] });
+  const [pointsList, setPointsList] = useState({ points: [{ x: -10, y: -10 }] });
   const onClickRect = (e: React.MouseEvent<HTMLDivElement, MouseEvent> ) => {
     e.preventDefault();
     const x = e.nativeEvent.offsetX;
@@ -11,9 +11,9 @@ const FieldWithPointsGeneration: React.FC  = () => {
     setPointsList({ points });
   };
 
-const pointElements = pointsList.points.map((el) => (
-  <circle id="point" cx={ el.x } cy={ el.y } r="3" fill="#ff0000"/>
-));
+  const pointElements = pointsList.points.map((el) => (
+    <circle id="point" cx={ el.x } cy={ el.y } r="3" fill="#ff0000"/>
+  ));
 
   return (
     <div className={styles.container} onClick={ (e) => onClickRect(e) }>

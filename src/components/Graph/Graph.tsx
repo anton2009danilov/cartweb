@@ -12,20 +12,19 @@ export class Graph extends React.Component<IGraphProps> {
     super(props);
     const valuesList = this.calcValuesParams(props.values).valuesList;
     this.valueElements = valuesList.map((el) => <rect x={ el.x} y={ el.y } width={ el.width } height={ el.height } fill="red"/>);
-    console.log(this.valueElements);
   };
 
-calcValuesParams(valuesList: Array<number>){
-  return valuesList.reduce(
-    (acc: {valuesList: Array<{ x: number, y: number, width: number, height: number }>, counter: number}, val) => {
-      const height = val * 20;
-      const width = 20;
-      const x = acc.counter * 30;
-      const y = 0;
-      const counter = acc.counter + 1;
-      return { valuesList: [...acc.valuesList, { x, y, width, height}], counter };
-    }, { valuesList: [], counter: 0 });
-  }
+  calcValuesParams(valuesList: Array<number>){
+    return valuesList.reduce(
+      (acc: {valuesList: Array<{ x: number, y: number, width: number, height: number }>, counter: number}, val) => {
+        const height = val * 20;
+        const width = 20;
+        const x = acc.counter * 30;
+        const y = 0;
+        const counter = acc.counter + 1;
+        return { valuesList: [...acc.valuesList, { x, y, width, height}], counter };
+      }, { valuesList: [], counter: 0 });
+    }
 
   render() {
     return  (
