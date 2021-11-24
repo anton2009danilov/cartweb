@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <FieldWithMoveablePoint/>
       <FieldWithPointsGeneration/>
-      <Graph values={ [1, 2, 3 ,4, 5] }/>
+      <Graph values={ [6, 7, 8 ,9, 10, 8, 6, 4, 3] }/>
     </div>
   );
 }

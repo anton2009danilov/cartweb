@@ -11,7 +11,7 @@ export class Graph extends React.Component<IGraphProps> {
   constructor(props: IGraphProps) {
     super(props);
     const valuesList = this.calcValuesParams(props.values).valuesList;
-    this.valueElements = valuesList.map((el) => <rect rx="5" ry="5" x={ el.x} y={ el.y } width={ el.width } height={ el.height } fill="red"/>);
+    this.valueElements = valuesList.map((el) => <rect rx="5" ry="5" x={ el.x} y={ el.y } width={ el.width } height={ el.height } fill="url('#myGradient')"/>);
   };
 
   calcValuesParams(valuesList: Array<number>){
@@ -30,6 +30,12 @@ export class Graph extends React.Component<IGraphProps> {
     return  (
       <div className={styles.container}>
         <svg id={ styles.graph_field} width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="myGradient" gradientTransform="rotate(90)">
+              <stop offset="5%"  stop-color="gold" />
+              <stop offset="95%" stop-color="red" />
+            </linearGradient>
+          </defs>
           <rect x="0" y="0" width="300" height="300" fill="#c0c0fa"/>
           { this.valueElements }
         </svg>
