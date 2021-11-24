@@ -26,11 +26,11 @@ export class FieldWithMoveablePoint extends React.Component<any, IFieldWithMovea
   render() {
     return (
       <div className={styles.container} onClick={ (e) => this.onClickRect(e) }>
-      <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" y="0" width="300" height="300" fill="#c0c0fa"/>
-        <circle id="point" cx={ this.state.circleX } cy={ this.state.circleY } r="3" fill="#ff0000"/>
-      </svg>
-    </div>
+        <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="0" width="300" height="300" fill="#c0c0fa"/>
+          <circle id="point" cx={ this.state.circleX } cy={ this.state.circleY } r="3" fill="#ff0000"/>
+        </svg>
+      </div>
     );
   }
 }
