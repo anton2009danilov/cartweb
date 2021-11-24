@@ -11,7 +11,15 @@ export class Graph extends React.Component<IGraphProps> {
   constructor(props: IGraphProps) {
     super(props);
     const valuesList = this.calcValuesParams(props.values).valuesList;
-    this.valueElements = valuesList.map((el) => <rect rx="5" ry="5" x={ el.x} y={ el.y } width={ el.width } height={ el.height } fill="url('#myGradient')"/>);
+    this.valueElements = valuesList.map((el) => (
+      <rect 
+        rx="5" ry="5"
+        x={ el.x} y={ el.y }
+        width={ el.width } height={ el.height }
+        fill="url('#myGradient')"
+      >
+        <animate attributeName="height" from="0" to={ el.height } dur="0.5s" fill="freeze" />
+      </rect>));
   };
 
   calcValuesParams(valuesList: Array<number>){
@@ -29,7 +37,7 @@ export class Graph extends React.Component<IGraphProps> {
   render() {
     return  (
       <div className={styles.container}>
-        <svg id={ styles.graph_field} width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+        <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" transform="scale(1, -1)">
           <defs>
             <linearGradient id="myGradient" gradientTransform="rotate(90)">
               <stop offset="5%"  stop-color="gold" />
