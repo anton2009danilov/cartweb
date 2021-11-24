@@ -1,0 +1,13 @@
+.container {
+  margin: 20px;
+  display: flex;
+  width: max-content;
+  height: max-content;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(157, 157, 214);
+}
+
+#graph_field {
+  transform: rotateX(180deg);
+}
