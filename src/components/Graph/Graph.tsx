@@ -7,6 +7,7 @@ interface IGraphProps {
 
 interface IGraphState {
   dashLineX: number,
+  dashVisibility: boolean,
   valueElements: Array<object>
 }
 
@@ -28,6 +29,7 @@ export class Graph extends React.Component<IGraphProps, IGraphState> {
 
     this.state = {
       dashLineX: 0,
+      dashVisibility: false,
       valueElements,
     }
   };
@@ -56,7 +58,12 @@ export class Graph extends React.Component<IGraphProps, IGraphState> {
 
   render() {
     return  (
-      <div className={styles.container} onMouseMove={ (e) => this.handleMouseMove(e)}>
+      <div
+        className={styles.container}
+        onMouseMove={ (e) => this.handleMouseMove(e)}
+        onMouseEnter={() => this.setState({ dashVisibility: true })}
+        onMouseLeave={() => this.setState({ dashVisibility: false })}
+      >
         <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" transform="scale(1, -1)">
           <defs>
             <linearGradient id="myGradient" gradientTransform="rotate(90)">
@@ -68,7 +75,12 @@ export class Graph extends React.Component<IGraphProps, IGraphState> {
 
           { this.state.valueElements }
 
-          <line x1={ this.state.dashLineX } y1="0" x2={ this.state.dashLineX } y2="300" stroke="rgba(149, 165, 166, 1)" stroke-dasharray="3"/>
+          <line 
+            x1={ this.state.dashLineX } y1="0"
+            x2={ this.state.dashLineX } y2="300"
+            stroke={ this.state.dashVisibility ? "rgba(149, 165, 166, 1)" : "rgba(149, 165, 166, 0)" }
+            stroke-dasharray="3"
+          />
         </svg>
       </div>
     )
