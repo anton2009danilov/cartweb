@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import FieldWithMoveablePoint from './components/Fields/FieldWithMoveablePoint';
 import FieldWithPointsGeneration from './components/Fields/FieldWithPointsGeneration';
-import Graph from './components/Graph/Graph';
+import { Graph } from './components/Graph/Graph';
 import './App.css';
 
 function App() {
